@@ -22,6 +22,10 @@ const locations = () => {
       setLocations(response.data.locations);
     } catch (err) {
       console.log(err);
+      // @ts-ignore
+      if (err.response.status === 401) {
+        router.push("/login");
+      }
     }
   };
 
