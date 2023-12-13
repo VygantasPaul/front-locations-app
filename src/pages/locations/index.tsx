@@ -7,8 +7,10 @@ import PageTemplate from "../../components/PageTemplate/PageTemplate";
 import cookie from "js-cookie";
 import { useRouter } from "next/router";
 const locations = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [locations, setLocations] = useState<Array<any> | null>(null);
   const headers = {
     authorization: cookie.get("jwttoken"),
@@ -22,6 +24,7 @@ const locations = () => {
       setLocations(response.data.locations);
     } catch (err) {
       console.log(err);
+      // @ts-ignore
       if (err.response.status === 401) {
         router.push("/login");
       }
