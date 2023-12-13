@@ -2,7 +2,7 @@
 const nextConfig = {
   reactStrictMode: false,
   env: {
-    SERVER_URL: "https://locations-wsdi.onrender.com/"
+    SERVER_URL: "https://locations-wsdi.onrender.com"
   }
 }
 

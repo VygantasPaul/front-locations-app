@@ -15,7 +15,7 @@ const locations = () => {
   };
   const fetchLocations = async () => {
     try {
-      const response = await axios.get(`${process.env.SERVER_URL}locations/`, {
+      const response = await axios.get(`${process.env.SERVER_URL}/locations/`, {
         headers,
       });
       console.log(response.data.locations);

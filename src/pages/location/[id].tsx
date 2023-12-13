@@ -27,7 +27,7 @@ const location = () => {
   };
   const fetchLocations = async (id: string) => {
     const response = await axios.get(
-      `${process.env.SERVER_URL}locations/${id}`,
+      `${process.env.SERVER_URL}/locations/${id}`,
       {
         headers,
       }

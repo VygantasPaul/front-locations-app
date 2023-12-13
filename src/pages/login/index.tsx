@@ -20,7 +20,7 @@ const Login = () => {
       password: password,
     };
     const response = await axios.post(
-      "process.env.SERVER_URLusers/login",
+      `${process.env.SERVER_URL}/users/login`,
       body
     );
 
