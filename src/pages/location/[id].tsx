@@ -26,9 +26,12 @@ const location = () => {
     authorization: cookie.get("jwttoken"),
   };
   const fetchLocations = async (id: string) => {
-    const response = await axios.get(`http://localhost:3002/locations/${id}`, {
-      headers,
-    });
+    const response = await axios.get(
+      `${process.env.SERVER_URL}locations/${id}`,
+      {
+        headers,
+      }
+    );
 
     setLocation(response.data.locations);
   };
@@ -42,7 +45,7 @@ const location = () => {
       authorization: cookie.get("jwttoken"),
     };
     const response = await axios.delete(
-      `http://localhost:3002/locations/${router.query.id}`,
+      `process.env.SERVER_URLlocations/${router.query.id}`,
       {
         headers,
       }

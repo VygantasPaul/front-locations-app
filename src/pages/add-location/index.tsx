@@ -49,7 +49,7 @@ const AddLocation = () => {
           authorization: cookie.get("jwttoken"),
         };
         const response = await axios.post(
-          `http://localhost:3002/locations/`,
+          `${process.env.SERVER_URL}locations/`,
           newLocation,
           { headers }
         );

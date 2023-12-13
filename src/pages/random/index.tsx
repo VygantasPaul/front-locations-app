@@ -16,7 +16,7 @@ const locations = () => {
   const fetchLocations = async () => {
     try {
       const response = await axios.get(
-        "http://localhost:3002/locations/random"
+        `${process.env.SERVER_URL}locations/random`
       );
       console.log(response.data.locations);
       setLocations(response.data.locations);
