@@ -5,7 +5,6 @@ import axios from "axios";
 import cookie from "js-cookie";
 import AddPostTemplate from "@/components/PageTemplate/AddPostTemplate";
 import Modal from "@/components/Modal/Modal";
-import router from "next/router";
 
 type LocationType = {
   _id: string;
@@ -17,11 +16,12 @@ type LocationType = {
   location_id: string;
 };
 const location = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
-  const [isModal, setIsModal] = useState<boolean>(false);
-
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [location, setLocation] = useState<LocationType | null>(null);
-
+  // eslint-disable-next-line react-hooks/rules-of-hooks
+  const [isModal, setIsModal] = useState(false);
   const headers = {
     authorization: cookie.get("jwttoken"),
   };
@@ -35,7 +35,7 @@ const location = () => {
 
     setLocation(response.data.locations);
   };
-
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     router.query.id && fetchLocations(router.query.id as string); //tikrinam jeigu yra gaunama reiksme kad nebutu undefined
   }, [router.query.id]);
@@ -45,7 +45,7 @@ const location = () => {
       authorization: cookie.get("jwttoken"),
     };
     const response = await axios.delete(
-      `process.env.SERVER_URLlocations/${router.query.id}`,
+      `${process.env.SERVER_URL}/locations/${router.query.id}`,
       {
         headers,
       }
