@@ -1,6 +1,6 @@
 import React from "react";
 type ModalType = {
-  onConfirm: (id: string) => Promise<void>;
+  onConfirm: () => void;
   onCancel: () => void;
 };
 const Modal: React.FC<ModalType> = ({ onConfirm, onCancel }) => {

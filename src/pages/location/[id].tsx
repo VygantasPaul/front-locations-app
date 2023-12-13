@@ -40,7 +40,7 @@ const location = () => {
     router.query.id && fetchLocations(router.query.id as string); //tikrinam jeigu yra gaunama reiksme kad nebutu undefined
   }, [router.query.id]);
 
-  const onDelete = async (id: string) => {
+  const onDelete = async () => {
     const headers = {
       authorization: cookie.get("jwttoken"),
     };
