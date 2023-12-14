@@ -14,7 +14,7 @@ export default function Home({}) {
       const headers = {
         authorization: cookie.get("jwttoken"),
       };
-      const response = await axios.get("process.env.SERVER_URLlocations/", {
+      const response = await axios.get(`${process.env.SERVER_URL}/locations/`, {
         headers,
       });
       setLocations(response.data.locations);
