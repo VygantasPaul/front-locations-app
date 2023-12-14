@@ -50,6 +50,9 @@ const NavBar = () => {
         {isLoggedIn && (
           <div className="flex items-center">
             <span className="text-white pr-3">{userName},</span>
+            <button className="text-white bg-gray-700 rounded-md px-3 py-2 text-sm font-medium hover:bg-gray-400 mr-3">
+              Profile
+            </button>
             <button
               onClick={onLogout}
               className="text-white bg-gray-700 rounded-md px-3 py-2 text-sm font-medium hover:bg-red-400"

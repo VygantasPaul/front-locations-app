@@ -59,7 +59,7 @@ const Location = () => {
       <AddPostTemplate>
         {location && (
           <div className="container mx-auto">
-            <div className="flex items-center py-6 w-full">
+            <div className="flex items-center my-6 w-full bg-white">
               <div className={`w/1/2`}>
                 {location.location_photo_url && (
                   // eslint-disable-next-line @next/next/no-img-element
@@ -70,18 +70,30 @@ const Location = () => {
                   />
                 )}
               </div>
-              <div className={`w-full pl-8`}>
-                <h2 className="text-3xl"> {location.title}</h2>
-                <h4 className="text-lg"> {location.longitude}</h4>
-                <h4 className="text-lg"> {location.latitude}</h4>
-                <p> {location.description}</p>
+              <div className={`w-full pl-8  h-full flex `}>
+                <div className=" ">
+                  <h2 className="text-3xl"> {location.title}</h2>
+                  <h4 className="text-lg"> {location.longitude}</h4>
+                  <h4 className="text-lg"> {location.latitude}</h4>
+                  <p> {location.description}</p>
+                  <div className="flex gap-2">
+                    <Button
+                      text="Delete"
+                      className="bg-red-700 flex w-full justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      onClick={() => setIsModal(true)}
+                      isLoading={false}
+                    />
+                    <Button
+                      isLoading={false}
+                      text="Edit"
+                      className="bg-green-700 flex w-full justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-green-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                      onClick={() =>
+                        router.push(`/edit-location/${router.query.id}`)
+                      }
+                    />
+                  </div>
+                </div>
               </div>
-              <Button
-                text="Delete"
-                className="bg-red-700 flex w-full justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-                onClick={() => setIsModal(true)}
-                isLoading={false}
-              />
               {isModal && (
                 <Modal
                   onConfirm={onDelete}

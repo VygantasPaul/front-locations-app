@@ -16,7 +16,8 @@ export default function Home({}) {
       const response = await axios.get(`${process.env.SERVER_URL}/locations/`, {
         headers,
       });
-      setLocations(response.data.locations);
+      const filteredLocations = response.data.locations.slice(0, 3);
+      setLocations(filteredLocations);
     } catch (err) {
       // @ts-ignore
       if (err.response.status === 401) {
