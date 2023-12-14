@@ -29,7 +29,11 @@ const Login = () => {
       localStorage.setItem("userData", JSON.stringify(response.data));
 
       if (response.status === 200) {
+        setTimeout(() => {
+          router.push("/");
+        }, 1000);
         router.push("/");
+        setAlert("User logged in");
       }
     } catch (err) {
       // @ts-ignore
