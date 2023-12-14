@@ -27,7 +27,7 @@ const Location: React.FC<LocationComponentType> = ({ location }) => {
             alt={location.title}
             className="object-cover w-full h-full"
           />
-          <div className="absolute inset-0 px-6 py-20 text-white bg-slate-400/50">
+          <div className="absolute inset-0 px-6 py-20 text-white bg-slate-400/50  hover:bg-slate-500/50">
             <div>Title: {location.title}</div>
             <div>longitude: {location.longitude}</div>
             <div>latitude: {location.latitude}</div>
