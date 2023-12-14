@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Router, useRouter } from "next/router";
+import { useRouter } from "next/router";
 import cookie from "js-cookie";
 import Button from "@/components/Button/Button";
 import PageTemplate from "@/components/PageTemplate/AddPostTemplate";

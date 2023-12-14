@@ -1,12 +1,12 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import Locations from "@/components/Locations/Locations";
+import LocationsComponent from "@/components/Locations/Locations";
 import PageTemplate from "../../components/PageTemplate/PageTemplate";
 
 import cookie from "js-cookie";
 import { useRouter } from "next/router";
-const locations = () => {
+const Locations = () => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
 
@@ -41,7 +41,7 @@ const locations = () => {
       <PageTemplate>
         {locations ? (
           locations.length > 0 ? (
-            <Locations locations={locations} />
+            <LocationsComponent locations={locations} />
           ) : (
             <>No records</>
           )
@@ -53,4 +53,4 @@ const locations = () => {
   );
 };
 
-export default locations;
+export default Locations;

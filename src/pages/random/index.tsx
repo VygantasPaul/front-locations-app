@@ -4,11 +4,12 @@ import axios from "axios";
 import Locations from "@/components/Locations/Locations";
 import PageTemplate from "../../components/PageTemplate/PageTemplate";
 
-import cookie from "js-cookie";
 import { useRouter } from "next/router";
-const locations = () => {
+const RandomLocations = () => {
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [locations, setLocations] = useState<Array<any> | null>(null);
 
   const fetchLocations = async () => {
@@ -27,6 +28,7 @@ const locations = () => {
     }
   };
 
+  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     fetchLocations();
   }, []);
@@ -48,4 +50,4 @@ const locations = () => {
   );
 };
 
-export default locations;
+export default RandomLocations;
