@@ -58,7 +58,7 @@ const AddLocation = () => {
         if (response.status === 201) {
           setTimeout(() => {
             router.push("/");
-          }, 3000);
+          }, 1000);
         } else {
           return false;
         }
