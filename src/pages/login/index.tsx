@@ -30,6 +30,9 @@ const Login = () => {
     if (response.status === 200) {
       router.push("/");
     }
+    if (response.status === 201) {
+      setAlert("Bad user email or  password");
+    }
   };
   return (
     <>

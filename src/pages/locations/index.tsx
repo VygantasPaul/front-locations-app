@@ -3,7 +3,6 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import Locations from "@/components/Locations/Locations";
 import PageTemplate from "../../components/PageTemplate/PageTemplate";
-
 import cookie from "js-cookie";
 import { useRouter } from "next/router";
 const LocationsPage = () => {
