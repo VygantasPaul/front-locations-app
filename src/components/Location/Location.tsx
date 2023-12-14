@@ -1,5 +1,4 @@
 import React from "react";
-import styles from "./Location.module.css";
 
 type LocationType = {
   _id: string;
@@ -21,6 +20,7 @@ const Location: React.FC<LocationComponentType> = ({ location }) => {
       href={`location/${location._id}`}
     >
       {location.location_photo_url ? (
+        /* eslint-disable @next/next/no-img-element */
         <>
           <img
             src={location.location_photo_url}
@@ -35,8 +35,8 @@ const Location: React.FC<LocationComponentType> = ({ location }) => {
         </>
       ) : (
         <>
-          <div className=" w-full h-80  flex  bg-slate-400/50 text-white">
-            <div className=" flex items-center  px-6  ">
+          <div className=" w-full h-80 flex  bg-slate-400/50 text-white">
+            <div className=" flex items-center px-6  ">
               <div>
                 <div>Title: {location.title}</div>
                 <div>longitude: {location.longitude}</div>
