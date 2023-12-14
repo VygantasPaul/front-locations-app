@@ -15,13 +15,11 @@ type LocationType = {
   location_photo_url: string;
   location_id: string;
 };
-const location = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const Location = () => {
   const router = useRouter();
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [location, setLocation] = useState<LocationType | null>(null);
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [isModal, setIsModal] = useState(false);
+
   const headers = {
     authorization: cookie.get("jwttoken"),
   };
@@ -35,9 +33,10 @@ const location = () => {
 
     setLocation(response.data.locations);
   };
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+
   useEffect(() => {
     router.query.id && fetchLocations(router.query.id as string); //tikrinam jeigu yra gaunama reiksme kad nebutu undefined
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [router.query.id]);
 
   const onDelete = async () => {
@@ -59,32 +58,37 @@ const location = () => {
     <>
       <AddPostTemplate>
         {location && (
-          <div className="flex items-center py-6 w-full">
-            <div className="w/1/2">
-              {location.location_photo_url && (
-                // eslint-disable-next-line @next/next/no-img-element
-                <img
-                  src={location.location_photo_url}
-                  alt=""
-                  className="w-full max-h-50 object-cover rounded-lg shadow-lg"
+          <div className="container mx-auto">
+            <div className="flex items-center py-6 w-full">
+              <div className={`w/1/2`}>
+                {location.location_photo_url && (
+                  // eslint-disable-next-line @next/next/no-img-element
+                  <img
+                    src={location.location_photo_url}
+                    alt=""
+                    className="w-full max-h-50 object-cover rounded-lg shadow-lg"
+                  />
+                )}
+              </div>
+              <div className={`w-full pl-8`}>
+                <h2 className="text-3xl"> {location.title}</h2>
+                <h4 className="text-lg"> {location.longitude}</h4>
+                <h4 className="text-lg"> {location.latitude}</h4>
+                <p> {location.description}</p>
+              </div>
+              <Button
+                text="Delete"
+                className="bg-red-700 flex w-full justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
+                onClick={() => setIsModal(true)}
+                isLoading={false}
+              />
+              {isModal && (
+                <Modal
+                  onConfirm={onDelete}
+                  onCancel={() => setIsModal(false)}
                 />
               )}
             </div>
-            <div className={`w-full pl-8`}>
-              <h2 className="text-3xl"> {location.title}</h2>
-              <h4 className="text-lg"> {location.longitude}</h4>
-              <h4 className="text-lg"> {location.latitude}</h4>
-              <p> {location.description}</p>
-            </div>
-            <Button
-              text="Delete"
-              className="bg-red-700 flex w-full justify-center rounded-md  px-3 py-1.5 text-sm font-semibold leading-6 text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600"
-              onClick={() => setIsModal(true)}
-              isLoading={false}
-            />
-            {isModal && (
-              <Modal onConfirm={onDelete} onCancel={() => setIsModal(false)} />
-            )}
           </div>
         )}
       </AddPostTemplate>
@@ -92,4 +96,4 @@ const location = () => {
   );
 };
 
-export default location;
+export default Location;
