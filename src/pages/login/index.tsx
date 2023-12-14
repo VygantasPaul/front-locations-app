@@ -11,27 +11,32 @@ const Login = () => {
   const [password, setPassword] = useState<string>("");
 
   const onLogin = async () => {
-    if (!email || !password) {
-      setAlert("Empty fields");
-      return false;
-    }
-    const body = {
-      email: email,
-      password: password,
-    };
-    const response = await axios.post(
-      `${process.env.SERVER_URL}/users/login`,
-      body
-    );
+    try {
+      if (!email || !password) {
+        setAlert("Empty fields");
+        return false;
+      }
+      const body = {
+        email: email,
+        password: password,
+      };
+      const response = await axios.post(
+        `${process.env.SERVER_URL}/users/login`,
+        body
+      );
 
-    cookie.set("jwttoken", response.data.token);
-    localStorage.setItem("userData", JSON.stringify(response.data));
-    console.log(response);
-    if (response.status === 200) {
-      router.push("/");
-    }
-    if (response.status === 201) {
-      setAlert("Bad user email or  password");
+      cookie.set("jwttoken", response.data.token);
+      localStorage.setItem("userData", JSON.stringify(response.data));
+
+      if (response.status === 200) {
+        router.push("/");
+      }
+    } catch (err) {
+      // @ts-ignore
+      if (err.response.status === 401) {
+        setAlert("Bad user email or  password");
+        return false;
+      }
     }
   };
   return (
