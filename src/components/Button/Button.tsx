@@ -1,4 +1,5 @@
 import React from "react";
+import Spinner from "../Spinner/Spinner";
 type ButtonType = {
   onClick: () => void;
   isLoading: Boolean;
@@ -24,7 +25,7 @@ const Button: React.FC<ButtonType> = ({
           {text}
         </button>
       ) : (
-        <>Loading....</>
+        <Spinner />
       )}
     </div>
   );

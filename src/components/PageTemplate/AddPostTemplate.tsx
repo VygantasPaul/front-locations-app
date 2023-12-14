@@ -9,7 +9,7 @@ const AddPostTemplate: React.FC<TemplateType> = ({ children }) => {
   return (
     <div className={`flex flex-col h-screen `}>
       <Header />
-      <main className={`flex-1 px-5`}>{children}</main>
+      <main className={`flex-1 px-3 lg:px-5`}>{children}</main>
       <Footer />
     </div>
   );

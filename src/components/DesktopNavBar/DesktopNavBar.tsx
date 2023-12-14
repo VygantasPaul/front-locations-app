@@ -59,7 +59,7 @@ const NavBar = () => {
             <span className="text-white pr-3">{userName},</span>
             <button
               onClick={onLogout}
-              className="text-gray-300 bg-gray-600 rounded-md px-3 py-2 text-sm font-medium"
+              className="text-gray-200 bg-gray-600 rounded-md px-3 py-2 text-sm font-medium hover:bg-red-400"
             >
               Logout
             </button>

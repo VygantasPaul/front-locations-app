@@ -2,10 +2,9 @@ import PageTemplate from "../components/PageTemplate/PageTemplate";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import Locations from "@/components/Locations/Locations";
-const inter = Inter({ subsets: ["latin"] });
-import { Inter } from "next/font/google";
 import { useRouter } from "next/router";
 import cookie from "js-cookie";
+import Spinner from "@/components/Spinner/Spinner";
 export default function Home({}) {
   const router = useRouter();
   const [locations, setLocations] = useState<Array<any> | null>(null);
@@ -39,7 +38,7 @@ export default function Home({}) {
             <>No records</>
           )
         ) : (
-          <>Loading</>
+          <Spinner />
         )}
       </PageTemplate>
     </>

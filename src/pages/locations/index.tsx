@@ -5,6 +5,7 @@ import Locations from "@/components/Locations/Locations";
 import PageTemplate from "../../components/PageTemplate/PageTemplate";
 import cookie from "js-cookie";
 import { useRouter } from "next/router";
+import Spinner from "@/components/Spinner/Spinner";
 const LocationsPage = () => {
   const router = useRouter();
   const [locations, setLocations] = useState<Array<any> | null>(null);
@@ -27,7 +28,6 @@ const LocationsPage = () => {
     }
   };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     fetchLocations();
   }, []);
@@ -42,7 +42,7 @@ const LocationsPage = () => {
             <>No records</>
           )
         ) : (
-          <>Loading</>
+          <Spinner />
         )}
       </PageTemplate>
     </>

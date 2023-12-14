@@ -3,12 +3,15 @@ import Image from "next/image";
 import Link from "next/link";
 const Logo = () => {
   return (
-    <Link href={"/"}>
+    <Link href="/" className="flex items-center">
       <img
-        className="h-8 w-auto"
-        src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-        alt="Logo"
-      ></img>
+        src="https://flowbite.com/docs/images/logo.svg"
+        className="mr-3 h-8"
+        alt="FlowBite Logo"
+      />
+      <span className="self-center text-2xl font-semibold whitespace-nowrap text-white">
+        Flowbite
+      </span>
     </Link>
   );
 };

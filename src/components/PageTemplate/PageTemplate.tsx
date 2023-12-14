@@ -15,9 +15,9 @@ const PageTemplate: React.FC<TemplateType> = ({ children }) => {
     <div className={`flex flex-col h-screen `}>
       <Header />
       <main
-        className={`grid grid-cols-1 xl:grid-cols-3 lg:px-5  xl:container mx-auto flex-1 ${lato.className}`}
+        className={`grid grid-cols-1 xl:grid-cols-3 lg:px-5 xl:container mx-auto items-center flex-1 ${lato.className}`}
       >
-        <div className="flex-1">{children}</div>
+        {children}
       </main>
       <Footer />
     </div>

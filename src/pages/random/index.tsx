@@ -5,6 +5,7 @@ import Locations from "@/components/Locations/Locations";
 import PageTemplate from "../../components/PageTemplate/PageTemplate";
 import cookie from "js-cookie";
 import { useRouter } from "next/router";
+import Spinner from "@/components/Spinner/Spinner";
 const RandomLocations = () => {
   const router = useRouter();
 
@@ -43,7 +44,7 @@ const RandomLocations = () => {
             <>No records</>
           )
         ) : (
-          <>Loading</>
+          <Spinner />
         )}
       </PageTemplate>
     </>
