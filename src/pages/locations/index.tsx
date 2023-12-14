@@ -1,16 +1,13 @@
 import React from "react";
 import { useState, useEffect } from "react";
 import axios from "axios";
-import LocationsComponent from "@/components/Locations/Locations";
+import Locations from "@/components/Locations/Locations";
 import PageTemplate from "../../components/PageTemplate/PageTemplate";
 
 import cookie from "js-cookie";
 import { useRouter } from "next/router";
-const Locations = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
+const LocationsPage = () => {
   const router = useRouter();
-
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [locations, setLocations] = useState<Array<any> | null>(null);
   const headers = {
     authorization: cookie.get("jwttoken"),
@@ -41,7 +38,7 @@ const Locations = () => {
       <PageTemplate>
         {locations ? (
           locations.length > 0 ? (
-            <LocationsComponent locations={locations} />
+            <Locations locations={locations} />
           ) : (
             <>No records</>
           )
@@ -53,4 +50,4 @@ const Locations = () => {
   );
 };
 
-export default Locations;
+export default LocationsPage;

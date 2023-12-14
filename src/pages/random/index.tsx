@@ -6,10 +6,8 @@ import PageTemplate from "../../components/PageTemplate/PageTemplate";
 
 import { useRouter } from "next/router";
 const RandomLocations = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const router = useRouter();
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const [locations, setLocations] = useState<Array<any> | null>(null);
 
   const fetchLocations = async () => {
@@ -28,7 +26,6 @@ const RandomLocations = () => {
     }
   };
 
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   useEffect(() => {
     fetchLocations();
   }, []);
